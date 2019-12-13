@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "##############################"
+echo "# bijwerken repositories en bijwerken OS #"
+echo "##############################"
+
+apt-get update
+apt-get upgrade -y
+
+echo "##########################"
+echo "# downloaden backup programma #"
+echo "##########################"
+
+cd /usr/local/bin
+git clone https://github.com/kveys/backup.git
+rm -rf /usr/local/bin/backup/.git
+
+echo "#####################"
+echo "#downloaden Linux scripts #"
+echo "#####################"
+
+cd /tmp
+git clone https://github.com/kveys/linux.git
+mv /tmp/linux/modfinder.sh /usr/local/bin
+rm -rf /tmp/linux
