@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo "################"
+echo "# tijdzone instellen #"
+echo "################"
+
+timedatectl set-timezone Europe/Brussels
+
+echo "##############################"
+echo "# bijwerken repositories en bijwerken OS #"
+echo "##############################"
+
+apt-get update
+apt-get upgrade -y
+
+echo "########################"
+echo "# installatie backup programma #"
+echo "########################"
+
+cd /tmp
+git clone https://github.com/kveys/backup.git
+/tmp/backup/install.sh
+
+echo "#####################"
+echo "#downloaden Linux scripts #"
+echo "#####################"
+
+cd /tmp
+git clone https://github.com/kveys/linux.git
+/tmp/linux/install.sh
